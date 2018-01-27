@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using SRTWatsonUnity.com;
 
 public class PlayerControllerHandler : MonoBehaviour
 {
@@ -28,12 +29,12 @@ public class PlayerControllerHandler : MonoBehaviour
     private List<string> m_damagedWords = new List<string>();
 
     private Animator m_animator;
-    private ArrokhWatsonS2T m_arrokhWatsonS2T;
+    private SimpleSRTWatsonUnity m_arrokhWatsonS2T;
 
     private void Start()
     {
         m_animator = GetComponent<Animator>();
-        m_arrokhWatsonS2T = FindObjectOfType<ArrokhWatsonS2T>();
+        m_arrokhWatsonS2T = FindObjectOfType<SimpleSRTWatsonUnity>();
 
         m_arrokhWatsonS2T.SetOnRecognizeFinalWords(UpdateStateBySpeech);
         m_arrokhWatsonS2T.SetOnStartRecognize(() => { m_textTarget.text = "Loading... :D"; });
