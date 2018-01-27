@@ -28,8 +28,6 @@ namespace SRTWatsonUnity.com
             foreach (var stateName in m_statesName)
                 m_animator.SetBool(stateName, false);
         }
-
-
     }
 
 }
