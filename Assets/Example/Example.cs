@@ -36,16 +36,19 @@ public class Example : MonoBehaviour
         if (!m_detectedWord.Contains(" "))
             PlayState();
         else
+        {
             Debug.Log("Detected more one word");
+            m_detectedWord = "";
+        }
     }
 
-    private void PlayState()
+    public void PlayState()
     {
-        ChangeState(m_detectedWord[0].ToString());
-        m_detectedWord = m_detectedWord.Remove(0,1);
+        if (m_detectedWord.Length == 0)
+            return;
 
-        if (m_detectedWord.Length > 0)
-            Invoke("PlayState", 1.35f);
+            ChangeState(m_detectedWord[0].ToString());
+        m_detectedWord = m_detectedWord.Remove(0,1);
     }
 
     private void ChangeState(string state)
